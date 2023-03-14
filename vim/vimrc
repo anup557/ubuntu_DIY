@@ -9,5 +9,7 @@ source ~/.vim/commands.vim
 source ~/.vim/powerline.vim
 
 
+" Plugin: Undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
 
 
