@@ -1,0 +1,13 @@
+
+" file contains the plugins of vim
+source ~/.vim/plugins.vim
+
+" file contains the commands of vim
+source ~/.vim/commands.vim
+
+" file contains the powerline commands of vim
+source ~/.vim/powerline.vim
+
+
+
+
