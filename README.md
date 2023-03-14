@@ -1,1 +1,1 @@
-this is the readme file for the repo.
+ubuntu_DIY contains the rc files of some apps like vim, ranger, i3 and bash. The rc files contains some useful commands mostly used in daily coding. The moto of this repo is to make the system faster through keyboard shortcuts and remove the dependency of mouse in daily use. Anyones contribution in this regards in warmly acceptable. 
