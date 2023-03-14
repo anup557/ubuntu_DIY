@@ -22,5 +22,9 @@ call vundle#begin()
       " to use airline themes in vim
       Plugin 'vim-airline/vim-airline'
       Plugin 'vim-airline/vim-airline-themes'
+      
+      " undo tree. You will thank me later
+      Plugin 'mbbill/undotree'
+
 call vundle#end()
 
