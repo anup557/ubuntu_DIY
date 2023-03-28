@@ -1,0 +1,19 @@
+#! /bin/bash
+
+# this script returns the current percentage of volume. It takes the current volume and calculate the percentage from there. 
+
+main (){
+    # defining max volume, as after that sound is not good
+    max_vol=150
+
+    # decreasing the vol
+    (pactl set-sink-volume @DEFAULT_SINK@ -10%)
+
+    # taking the original volume
+    original_vol="$(pactl list sinks | awk '/Volume: front-left/ { sub("%",""); {print $5}}')"
+
+    percentage=$(($(($original_vol*100)) / $max_vol))
+    notify-send --expire-time=2000 "$(echo "volume: $percentage%")"
+}
+
+main

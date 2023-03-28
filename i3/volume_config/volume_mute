@@ -1,0 +1,24 @@
+#! /bin/bash
+
+# this script toggling the mute and unmutes and shows the pop-up of mute and unmute depending upon that.
+
+main (){
+    # toggling the mute and unmute option
+    (pactl set-sink-mute @DEFAULT_SINK@ toggle)
+
+    # checking whether muted or not
+    mute="$(pactl list sinks | awk '/Mute:/ {print $2}')"
+
+    if [ $mute = "yes" ]; then
+	notify-send --expire-time=2000 "$(echo "muted.")"
+    else
+        # calculating vol percentage
+        max_vol=150
+        original_vol="$(pactl list sinks | awk '/Volume: front-left/ { sub("%",""); {print $5}}')"
+	percentage=$(($(($original_vol*100)) / $max_vol))
+
+	notify-send --expire-time=2000 "$(echo "unmuted. Volume: $percentage%.")"
+    fi
+}
+
+main
