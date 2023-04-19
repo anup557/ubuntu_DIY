@@ -1,0 +1,10 @@
+#! /bin/sh
+# this script is not ok. have to fix this
+
+chosen=$(printf "wifi\nbluetooth" | rofi -dmenu -i)
+
+case "$chosen" in
+	"wifi") 1 ;;
+	"bluetooth") /home/anup/.config/rofi/bluetooth ;;
+	*) exit 1 ;;
+esac
