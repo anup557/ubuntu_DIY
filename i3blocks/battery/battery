@@ -1,0 +1,114 @@
+
+main(){
+    # locating battery directory
+    battery_dir=/sys/class/power_supply/BAT*
+
+    # calculating battery power
+    battery_state="$(cat ${battery_dir}/status)" 
+    battery_now="$(cat ${battery_dir}/energy_now)" 
+    battery_max="$(cat ${battery_dir}/energy_full)" 
+    battery_power=$(($(($battery_now*100)) / $battery_max))
+
+    # levels when battery is not charging
+    if [ "${battery_state}" = "Discharging" ]; then
+	    if [ "${battery_power}" = 100 ]; then
+		echo "󰁹 ${battery_power}% Full"
+		echo
+		echo \#618156
+
+	    elif [ "${battery_power}" -gt 95 ]; then
+		echo "󰁹 ${battery_power}%"
+		echo
+		echo \#618156
+
+	    elif [ "${battery_power}" -gt 90 ]; then
+		echo "󰂂 ${battery_power}%"
+		echo
+		echo \#618156
+
+	    elif [ "${battery_power}" -gt 80 ]; then
+		echo "󰂁 ${battery_power}%"
+		echo
+		echo \#618156
+
+	    elif [ "${battery_power}" -gt 70 ]; then
+		echo "󰂀 ${battery_power}%"
+		echo
+		echo \#8ec07c
+
+	    elif [ "${battery_power}" -gt 60 ]; then
+		echo "󰁿 ${battery_power}%"
+		echo
+		echo \#8ec07c
+
+	    elif [ "${battery_power}" -gt 50 ]; then
+		echo "󰁾 ${battery_power}%"
+		echo
+		echo \#CCDEC5
+
+	    elif [ "${battery_power}" -gt 40 ]; then
+		echo "󰁽 ${battery_power}%"
+		echo
+		echo \#CCDEC5
+		
+	    elif [ "${battery_power}" -gt 30 ]; then
+		echo "󰁼 ${battery_power}%"
+		echo
+		echo \#B98B63
+
+
+	    elif [ "${battery_power}" -gt 20 ]; then
+		echo "󰁻 ${battery_power}%"
+		echo
+		echo \#CB6A14
+
+	    elif [ "${battery_power}" -gt 10 ]; then
+		echo "󰁺 ${battery_power}%"
+		echo
+		echo \#B2611A
+
+	    else 
+		echo "󱃍 ${battery_power}%"
+		echo
+		echo \#fb4934
+	    fi
+	    
+    # levels when battery is charging
+    else
+	    if [ "${battery_power}" = 100 ]; then
+		echo "󰂅 ${battery_power}% Full"
+
+	    elif [ "${battery_power}" -gt 90 ]; then
+		echo "󰂋 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 80 ]; then
+		echo "󰂊 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 70 ]; then
+		echo "󰢞 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 60 ]; then
+		echo "󰂉 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 50 ]; then
+		echo "󰢝 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 40 ]; then
+		echo "󰂈 ${battery_power}%"
+		
+	    elif [ "${battery_power}" -gt 30 ]; then
+		echo "󰂇 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 20 ]; then
+		echo "󰂆 ${battery_power}%"
+
+	    elif [ "${battery_power}" -gt 10 ]; then
+		echo "󰢜 ${battery_power}%"
+
+	    else 
+		echo "󰢟  ${battery_power}%"
+	    fi
+	fi
+}
+
+main
