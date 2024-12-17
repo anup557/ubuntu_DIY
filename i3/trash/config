@@ -1,7 +1,3 @@
-# gist: this is the original i3 file. In the original i3 file location this file is included only and
-# all the lines in the file is commented.
-# -------------------------------------------------------------------------------------------------
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -37,11 +33,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-# set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -67,10 +63,10 @@ bindsym Mod1+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus. Here the third option is off as in Alt+l the locking thing is settled up.
+# change focus
 bindsym Mod1+$left focus left
 bindsym Mod1+$down focus down
-# bindsym Mod1+$up focus up
+bindsym Mod1+$up focus up
 bindsym Mod1+$right focus right
 
 # alternatively, you can use the cursor keys:
@@ -198,7 +194,7 @@ bindsym Mod1+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks
+        status_command i3status
 }
 
 #######################################################################
@@ -213,26 +209,8 @@ bar {
 #######################################################################
 exec i3-config-wizard
 
-# mapping ranger and chrome
-bindsym Mod1+g exec --no-startup-id exec google-chrome
-bindsym Mod1+p exec --no-startup-id exec gnome-terminal -e "ranger"
+bindsym Mod1+b exec --no-startup-id exec firefox
+bindsym Mod1+p exec --no-startup-id exec xfce4-terminal -e "ranger"
 
-# mapping the brightness keys
-bindsym XF86MonBrightnessUp exec "$(/home/anup/Dropbox/ubuntu_DIY/i3/brightness/brightness_up)"
-bindsym XF86MonBrightnessDown exec "$(/home/anup/Dropbox/ubuntu_DIY/i3/brightness/brightness_down)"
 
-# Use pactl to adjust volume in PulseAudio. The refresh i3 status was there in the config from initial and don't know what the function actually does. Have to look at into that. The lower function maps the vol keys with the appropriate functions. 
-set $refresh_i3status killall -SIGUSR1 i3status
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id /etc/i3/volume_config/volume_up && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id /etc/i3/volume_config/volume_down && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id /etc/i3/volume_config/volume_mute && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# to take screenshot using PrtSc
-bindsym Print exec gnome-screenshot -i
-
-# to blur the screen at lock screen
-bindsym Mod1+l exec --no-startup-id /home/anup/Dropbox/ubuntu_DIY/i3/blur/blur
-
-# exec_always --no-startup-id /home/anup/Dropbox/ubuntu_DIY/i3/pendrive_mount/test.sh

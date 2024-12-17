@@ -1,0 +1,58 @@
+<mxfile host="Electron" modified="2024-03-23T15:01:28.358Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="CXsH8uy_aH8a_b4cJTwy" version="24.0.4" type="device" pages="4">
+  <diagram id="h2uCwHawAl6BEzU_7ndh" name="Page-3">
+    <mxGraphModel dx="876" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dOdsAm3f2RoQgTHgtpjK-2" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="251.25" width="500" height="27.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dOdsAm3f2RoQgTHgtpjK-1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#59B000;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="190" y="260" width="500" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="l_A_wMOnuGdudFqJbXIi" name="Page-2">
+    <mxGraphModel dx="876" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MxeewJvcTAXwMcTQZBxu-1" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="251.25" width="500" height="27.5" as="geometry" />
+        </mxCell>
+        <mxCell id="MxeewJvcTAXwMcTQZBxu-2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#59B000;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="190" y="260" width="450" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cPvwwEJI61rbstXQydAW" name="Page-4">
+    <mxGraphModel dx="876" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Cmxp_G_i4AcAlucikIZn-1" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="251.25" width="500" height="27.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Cmxp_G_i4AcAlucikIZn-2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#59B000;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="190" y="260" width="400" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="0chk-heLOFcf0DAlNYNj" name="Page-5">
+    <mxGraphModel dx="876" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k_CpEciAUc-Yw1STlye_-1" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="251.25" width="500" height="27.5" as="geometry" />
+        </mxCell>
+        <mxCell id="k_CpEciAUc-Yw1STlye_-2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#59B000;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="190" y="260" width="350" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

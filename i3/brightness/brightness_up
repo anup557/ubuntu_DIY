@@ -1,0 +1,76 @@
+#! /bin/bash
+
+# this script returns the current percentage of brightness. It takes the current brightness and calculate the percentage from there. 
+
+main (){
+    # give notification, if light is not installed
+    if [[ $(which light) = "" ]]; then
+        $(notify-send -i /home/anup/Dropbox/ubuntu_DIY/i3/blur/error.jpeg "Error" "Please install light to use brightness config.\n
+        Use: 
+        (i) sudo apt-get install light
+        (ii) chmod +x /usr/bin/light")
+        exit
+    fi
+
+    # increasing the light depending upon hte increase amount
+    increase_amount=5
+
+    # command to incrase the light
+    light -A $increase_amount
+
+    # calculating the original and the max brightness
+    original_brightness="$(cat /sys/class/backlight/intel_backlight/brightness)"
+    max_brightness="$(cat /sys/class/backlight/intel_backlight/max_brightness)"
+
+    # calculating the brightness percentage
+    percentage=$(($(($original_brightness*100)) / $max_brightness))
+    id=1200
+
+    RED="\033[0;31m"
+    NC="\033[0m"# No Color
+    
+
+    if [ "${percentage}" -ge 100 ]; then
+        # dunstify -r ${id} "brightness" "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ $percentage" 
+        dunstify -r ${id} "brightness" "aaa" "bbbbb" 
+
+    elif [ "${percentage}" -ge 80 ]; then
+        dunstify -r ${id} "brightness" "$(echo "======================>___ $percentage")" 
+
+    elif [ "${percentage}" -ge 70 ]; then
+        dunstify -r ${id} "brightness" "$(echo "===================>______ $percentage")" 
+
+    elif [ "${percentage}" -ge 60 ]; then
+        dunstify -r ${id} "brightness" "$(echo "===================>...... $percentage")" 
+
+    elif [ "${percentage}" -ge 40 ]; then
+        dunstify -r ${id} "brightness" "$(echo "=================>........ $percentage")" 
+
+    elif [ "${percentage}" -ge 20 ]; then
+        dunstify -r ${id} "brightness" "$(echo "===============>.......... $percentage")" 
+
+    elif [ "${percentage}" -ge 10 ]; then
+        dunstify -r ${id} "brightness" "$(echo "=============>............ $percentage")" 
+
+    else
+        dunstify -r ${id} "brightness" "$(echo "===========>.............. $percentage")" 
+    fi
+
+    # print_cmnd="bright: $percentage"
+    # echo "brightness: $percentage%"
+
+    # sending the notification 
+    # notify-send --expire-time=2000 "brightness: $percentage"
+    # notify-send --expire-time=2000 /home/anup/Dropbox/ubuntu_DIY/i3/brightness/sun.png
+
+    # to add a pic in notification 
+    # -i specifies the icon for the notification
+    # NID=$(notify-send -i /home/anup/Dropbox/ubuntu_DIY/i3/brightness/brightness.gif "brightness:▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇" $percentage)
+    # dunstify "aaa" "▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ $percentage" 
+    # NID=$(notify-send -i /home/anup/Dropbox/ubuntu_DIY/i3/brightness/brightness.gif "$(xdg-open /home/anup/Dropbox/ubuntu_DIY/i3/brightness/brightness.gif)")
+
+    # notify-send $NID
+    # $(dunstify "brightness" /home/anup/Dropbox/ubuntu_DIY/i3/brightness/progress_bar/progress_bar-Page-1.drawio.pdf)
+}
+
+main

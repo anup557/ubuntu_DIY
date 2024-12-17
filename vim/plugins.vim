@@ -2,29 +2,44 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-      " to install in vimrc
-      Plugin 'VundleVim/Vundle.vim'
+    " to install in vimrc
+    Plugin 'VundleVim/Vundle.vim'
 
-      " to install snippets
-      Plugin 'SirVer/ultisnips'
-      Plugin 'honza/vim-snippets'
+    " to install snippets
+    Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
 
-      " to comment lines using gcc command
-      Plugin 'tpope/vim-commentary'
+    " to comment lines using gcc command
+    Plugin 'tpope/vim-commentary'
 
-      " to use multiple cursors to modify file
-      Plugin 'terryma/vim-multiple-cursors'
+    " to use multiple cursors to modify file
+    Plugin 'terryma/vim-multiple-cursors'
 
-      " to give brackets arround some highlighted text
-      Plugin 'LucHermitte/lh-vim-lib'
-      Plugin 'LucHermitte/lh-brackets'
+    " to give brackets arround some highlighted text
+    Plugin 'LucHermitte/lh-vim-lib'
+    Plugin 'LucHermitte/lh-brackets'
 
-      " to use airline themes in vim
-      Plugin 'vim-airline/vim-airline'
-      Plugin 'vim-airline/vim-airline-themes'
-      
-      " undo tree. You will thank me later
-      Plugin 'mbbill/undotree'
+    " " to use the colorscheme gruvbox
+    " Plugin 'morhetz/gruvbox'
 
+    " to use the colorscheme gruvbox
+    Plugin 'habamax/habamax-theme'
+    Plugin 'ayu-theme/ayu-vim'
+    Plugin 'rakr/vim-one'
+
+    " to use airline themes in vim
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+
+    " vim-plug
+    Plugin 'lervag/vimtex'
+
+    Plugin 'altercation/vim-colors-solarized'
+
+    Plugin 'preservim/nerdtree'
+
+    Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plugin 'junegunn/fzf.vim'
 call vundle#end()
+
 
