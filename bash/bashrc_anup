@@ -1,0 +1,116 @@
+# gist: the file contains all the commands written by me for bashrc
+# -------------------------------------------------------------
+wtis(){
+    curl "cheat.sh/$1"
+}
+
+# function runc compiles the specified c prog and run the executable file. It then remove the
+# executable file after running.
+runc(){
+    gcc "$1" -lm -o out
+    if [ $? -eq 0 ]; then
+        ./out
+        rm out
+    fi
+}
+
+# following function encrypts a folder and all the files within it
+gpg_enc_fldr(){
+    fldr=${1%"/"}
+    tar czf "$fldr.tar.gz" "$1"
+    if [ $? -eq 0 ]; then
+        gpg -c "$fldr.tar.gz"
+        rm -r "$1"
+        rm -r "$fldr.tar.gz"
+    fi
+}
+
+# following function decrypts a folder and all the files within it
+gpg_dec_fldr(){
+    tar_file_name=${1%".gpg"}
+    gpg -d "$1" >> "$tar_file_name"
+    tar xzf "$tar_file_name"
+    if [ $? -eq 0 ]; then
+        rm $1
+        rm $tar_file_name
+    fi
+}
+
+# to sync the dropbox
+dropbox_sync(){
+    ~/.dropbox-dist/dropboxd
+    }
+
+# this runs the corresponding c file and generate the pdf from the same
+c_to_pdf(){
+    gcc "$1" -o out
+    if [ $? -eq 0 ]; then
+        ./out ${1%".c"}
+        rm out
+
+        pdflatex ${1%".c"}.tex
+        rm ${1%".c"}.aux
+        rm ${1%".c"}.log
+        rm ${1%".c"}.tex
+    fi
+}
+
+
+# -------------------------------------------------------------
+# creating alias
+# -------------------------------------------------------------
+alias q="exit"
+alias ot="gnome-terminal"
+alias clr="clear"
+alias gh="history|grep"
+
+
+# -------------------------------------------------------------
+# exporting the paths
+# -------------------------------------------------------------
+export GUROBI_HOME=/opt/gurobi1102/linux64/
+export PATH=$GUROBI_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$GUROBI_HOME/lib:$LD_LIBRARY_PATH
+export PATH=$PATH:/etc/i3/i3-battery-popup/i3-battery-popup
+
+# # not working this
+# export PATH=$PATH:/home/anup/Desktop/dhiman\ da/codes/my_lib/my_lib.h
+
+. "$HOME/.cargo/env"
+
+# terminal theme
+tt(){
+    bash -c  "$(wget -qO- https://git.io/vQgMr)"
+}
+
+alias mnzc="/home/anup/Desktop/github/MiniZincIDE-2.8.3-bundle-linux-x86_64/bin/minizinc"
+
+# ----------------------------------------------------------
+# to style terminal appearance
+# ----------------------------------------------------------
+# for auto-suggestions
+source ~/.ble.sh/out/ble.sh
+
+# to disable the colors (red for shell commands, blue for directory), 
+# do: cp ~/.ble.sh/blerc.template ~/.blerc, then search for "bleopt highlight_syntax=" in ~/.blerc
+# and un-comment the line
+# add "ble-face auto_complete='dim fg=245'" in ~/.blerc for dimlighting the autosuggestion
+
+
+# Shorten directory to last 2 folders in cmd promt
+PROMPT_DIRTRIM=2
+
+# Kali-like boxed style prompt
+PS1='\[\e[1;34m\]┌──(\[\e[1;32m\]\u\[\e[1;34m\]㉿\h\[\e[1;34m\])-[\[\e[1;36m\]\w\[\e[1;34m\]]\n\[\e[1;34m\]└─\[\e[1;37m\]\$ \[\e[0m\]'
+
+# press ctrl-r to see the history
+__fzf_history__() {
+    READLINE_LINE=$(history | awk '{$1=""; print substr($0,2)}' | fzf)
+    READLINE_POINT=${#READLINE_LINE}
+}
+bind -x '"\C-r": __fzf_history__'
+
+# including sage's path
+export PATH="$HOME/Documents/sage-10.7:$PATH"
+
+
