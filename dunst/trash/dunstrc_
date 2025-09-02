@@ -1,0 +1,66 @@
+[global]
+    # defining the position of the notification bar
+    geometry = "0x0-20+40"
+
+    # for the frame around the notification bar
+    frame_width = 3
+
+    # separator for more than one notification
+    notification_height = 0
+    separator_height = 2
+
+    # to give the horizontal and vertical space in the bar
+    horizontal_padding = 8
+    padding = 7
+
+    # color between two different notifications
+    separator_color = auto
+
+    # sorting the notifications
+    sort = yes
+
+    # font style and the font size of the notifications
+    font = JetBrains Mono 9
+    
+    # radious of the corners of the notification bar
+    corner_radius = 7
+
+
+
+    line_height = 0
+
+    markup = full
+
+    alignment = center
+
+    show_age_threshold = 60
+
+    word_wrap = yes
+
+    ignore_newline = no
+
+    stack_duplicates = true
+
+    hide_duplicate_cound = false
+
+    show_indicators = yes
+
+    icon_position = left
+
+    max_icon_size = 32
+
+    # icon_path = ""
+
+    sticky_history = yes
+
+    history_length = 20
+
+
+[urgency_normal]
+    # background = "#008080"
+    background = "#e3d8a9"
+    foreground = "#000000"
+    timeout = 5
+
+
+
