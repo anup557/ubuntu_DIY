@@ -30,3 +30,6 @@ let maplocalleader = ","
 " error appears at once, then the errors keep on appearing
 let g:vimtex_quickfix_open_on_warning = 0
 
+nnoremap <leader>se :tabnew \| UltiSnipsEdit tex<CR>
+nnoremap <leader>sc :call UltiSnips#RefreshSnippets()<CR>
+

@@ -16,8 +16,8 @@ call vundle#begin()
     Plugin 'terryma/vim-multiple-cursors'
 
     " to give brackets arround some highlighted text
-    Plugin 'LucHermitte/lh-vim-lib'
-    Plugin 'LucHermitte/lh-brackets'
+    " Plugin 'LucHermitte/lh-vim-lib'
+    " Plugin 'LucHermitte/lh-brackets'
 
     " " to use the colorscheme gruvbox
     " Plugin 'morhetz/gruvbox'
@@ -33,6 +33,7 @@ call vundle#begin()
 
     " vim-plug
     Plugin 'lervag/vimtex'
+    Plugin 'tpope/vim-surround'
 
     Plugin 'altercation/vim-colors-solarized'
 
@@ -40,6 +41,9 @@ call vundle#begin()
 
     Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plugin 'junegunn/fzf.vim'
+
+    " install node first
+    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 call vundle#end()
 
 

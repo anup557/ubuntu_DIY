@@ -16,6 +16,7 @@
 " sw: shiftwidth i.e. in a shift how many tabs will be there. So in a shift now its like 4 spaces
 :set sw=4
 " after 100 text width it gives adds a newline charecter
+" to apply this, move the cursor in the line and press gq
 :set tw=100
 
 " ---------------------------------
@@ -113,10 +114,29 @@ autocmd User VimtexEventQuit VimtexClean
 " ---------------------------------
 " related snippets
 " ---------------------------------
-" next 3 lines are commands for snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" " next 3 lines are commands for snippets
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<tab>"
+
+" ---------------------------------
+" for auto suggestions
+" ---------------------------------
+" Tab to navigate completion menu, Enter to confirm
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+
+" !!!!!!!!not working
+" Use Tab for coc.nvim completion and UltiSnips expansion/jump
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ "\<Tab>"
+
+" Use Shift-Tab for coc.nvim popup menu previous or UltiSnips jump backward
+inoremap <silent><expr> <S-Tab>
+      \ pumvisible() ? "\<C-p>" :
+      \ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump-backward',''])\<CR>" :
+      \ "\<S-Tab>"
 
 " ---------------------------------
 " related comment string
@@ -156,3 +176,9 @@ let &t_EI = "\e[2 q"
 
 " remove the highlighted color in fold
 :hi Folded ctermfg=102 guifg=#878787 guibg=NONE ctermbg=NONE
+
+" to make full screen at the time of opening
+set lines=999 columns=999
+
+nnoremap tt :lcd %:p:h<CR>:terminal<CR>
+
